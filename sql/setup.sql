@@ -33,7 +33,7 @@ VALUES
     'TOOL',
     'Fear Inoculum',
     2019,
-    '13:47'
+    '15:44'
   ),
   (
     'Frizzle Fry',
@@ -69,4 +69,66 @@ VALUES
     'Sees of Cheese',
     1991,
     '2:55'
+  );
+
+
+DROP TABLE IF EXISTS trees;
+CREATE TABLE trees (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR NOT NULL,
+  species VARCHAR NOT NULL,
+  location VARCHAR NOT NULL,
+  age VARCHAR NOT NULL
+);
+
+INSERT INTO
+  trees (name, species, location, age)
+VALUES
+  (
+    'Angel Oak',
+    'Southern live oak',
+    'Johns Island, South Carolina, near Charleston, South Carolina, US',
+    '400-500'
+  ),
+  (
+    'Bedford Oak',
+    'White oak ',
+    'Bedford, New York',
+    '300–500'
+  ),
+  (
+    'Bennett Juniper',
+    'Grand juniper',
+    'Stanislaus National Forest, Tuolumne County, California US',
+    '2,000–6,000'
+  ),
+  (
+    'Grayson Elm',
+    'American elm',
+    'Amherst, Massachusetts, US',
+    '200'
+  ),
+  (
+    'Grizzly Giant',
+    'Giant sequoia',
+    'Yosemite National Park, California, US',
+    '2,995 (+/-250)'
+  ),
+  (
+    'Lone Cypress',
+    'Monterey cypress',
+    'Pebble Beach, California, US',
+    '~250'
+  ),
+  (
+    'Pando',
+    'Quaking aspen',
+    'Utah, US',
+    '<14,000'
+  ),
+  (
+    'Pechanga Great Oak',
+    'Coast live oak',
+    'Temecula, California, US',
+    '1500–2000'
   );
