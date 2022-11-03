@@ -25,6 +25,19 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/songs/:id should return song detail', async () => {
+    const res = await request(app).get('/songs/1');
+    const thirdEye = {
+      id: '1',
+      name: 'Third Eye',
+      band: 'TOOL',
+      album: 'Aenima',
+      year: 1996,
+      length: '13:47',
+    };
+    expect(res.body).toEqual(thirdEye);
+  });
+
   afterAll(() => {
     pool.end();
   });
