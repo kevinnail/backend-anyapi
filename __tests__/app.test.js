@@ -50,8 +50,20 @@ describe('backend-express-template routes', () => {
         age: tree.age,
       };
     });
-
     expect(res.body).toEqual(expected);
+  });
+
+  it('/trees/:id should return tree detail', async () => {
+    const res = await request(app).get('/trees/1');
+    const angelOak = {
+      id: '1',
+      name: 'Angel Oak',
+      species: 'Southern live oak',
+      location:
+        'Johns Island, South Carolina, near Charleston, South Carolina, US',
+      age: '400-500',
+    };
+    expect(res.body).toEqual(angelOak);
   });
 
   afterAll(() => {
