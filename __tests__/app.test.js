@@ -4,6 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 const { songs } = require('../lib/songs-data.js');
+const { trees } = require('../lib/trees-data.js');
 
 describe('backend-express-template routes', () => {
   beforeEach(() => {
@@ -36,6 +37,21 @@ describe('backend-express-template routes', () => {
       length: '13:47',
     };
     expect(res.body).toEqual(thirdEye);
+  });
+
+  it('/trees should return a list of trees', async () => {
+    const res = await request(app).get('/trees');
+    const expected = trees.map((tree) => {
+      return {
+        id: tree.id,
+        name: tree.name,
+        species: tree.species,
+        location: tree.location,
+        age: tree.age,
+      };
+    });
+
+    expect(res.body).toEqual(expected);
   });
 
   afterAll(() => {
